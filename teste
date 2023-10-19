@@ -1,0 +1,141 @@
+#Parte 1
+
+#1.
+
+def d(x1,y1):
+    d = (x1**2 + y1**2)**0.5
+    return d
+#2.
+
+import math
+def v(r = 1):
+    v = 4/3*math.pi*r**3
+    return v
+#3.
+
+def area_trapezio(altura, base_maior, base_menor):
+    area = (base_maior+base_menor)*altura/2
+    return area
+
+#4.
+
+def f(a,b,c):
+    if a > b and b > c:
+        print(a,b,c)
+    if a > c and c > b:
+        print(a,c,b)
+    if b > a and a > c:
+        print(b, a, c)
+    if b > c and c > a:
+        print(b,c,a)
+    if c > a and a > b:
+        print(c,a,b)
+    if c > b and b > a:
+        print(c , b, a)
+    f(1,2,3)
+    print()
+    print(a,b,c)
+
+#5.
+
+x = float(input())
+
+if 0 <= x <= 400:
+    novo_salario = x * 1.15
+    reajuste_ganho = x * 0.15
+    percentual = 15
+    print(f'Novo salario: {novo_salario:.2f}\nReajuste ganho: {reajuste_ganho:.2f}\nEm percentual: {percentual} %')
+
+elif 400 < x <= 800:
+    novo_salario = x * 1.12
+    reajuste_ganho = x * 0.12
+    percentual = 12
+    print(f'Novo salario: {novo_salario:.2f}\nReajuste ganho: {reajuste_ganho:.2f}\nEm percentual: {percentual} %')
+
+
+elif 800 < x <= 1200:
+    novo_salario = x * 1.10
+    reajuste_ganho = x * 0.10
+    percentual = 10
+    print(f'Novo salario: {novo_salario:.2f}\nReajuste ganho: {reajuste_ganho:.2f}\nEm percentual: {percentual} %')
+
+
+elif 1200 < x <= 2000:
+    novo_salario = x * 1.07
+    reajuste_ganho = x * 0.07
+    percentual = 7
+    print(f'Novo salario: {novo_salario:.2f}\nReajuste ganho: {reajuste_ganho:.2f}\nEm percentual: {percentual} %')
+
+
+else:
+    novo_salario = x * 1.04
+    reajuste_ganho = x * 0.04
+    percentual = 4
+    print(f'Novo salario: {novo_salario:.2f}\nReajuste ganho: {reajuste_ganho:.2f}\nEm percentual: {percentual} %')
+'''
+#6.
+
+#a)
+
+def delta(a,b,c):
+    delta = b**2 - 4*a*c
+    return delta
+#b)
+
+def raiz(a,b,c):
+    if delta(a,b,c) >= 0:
+        x1 = (-b + delta(a,b,c)**0.5)/(2*a)
+        x2 = (-b - delta(a, b, c) ** 0.5) / (2 * a)
+        return x1,x2
+    else:
+        return
+
+#PArte 2
+
+#1.
+
+'''# Função para verificar se uma frase é um tautograma
+def e_tautograma(frase):
+    # Divida a frase em palavras
+    palavras = frase.split()
+
+    # Obtenha a primeira letra da primeira palavra
+    primeira_letra = palavras[0][0].lower()  # Converta para minúscula para ignorar maiúsculas
+
+    # Verifique se todas as palavras começam com a mesma letra
+    for palavra in palavras:
+        if palavra[0].lower() != primeira_letra:
+            return 'N'  # Não é um tautograma
+
+    return 'Y'  # É um tautograma'''
+
+def f2(x):
+    estrutura = [x*2, x+10]
+    estrutura[0] = estrutura[0] - estrutura[1]
+    estrutura[1] = estrutura[0]*estrutura[1]
+    return estrutura
+
+print(f2(1))
+
+def f(x, y = 10, z = 20):
+    a = (10**5)*x + y + z
+    return f2(a)
+
+print(f(1))
+
+#Parte 3
+
+#1.
+
+def encontrar_menor(lista, indice=0, menor=None, posicao=None):
+    if indice == 0:
+        menor = lista[0]
+        posicao = 0
+
+    if indice < len(lista):
+        if lista[indice] < menor:
+            menor = lista[indice]
+            posicao = indice
+        return encontrar_menor(lista, indice + 1, menor, posicao)
+    else:
+        return menor, posicao
